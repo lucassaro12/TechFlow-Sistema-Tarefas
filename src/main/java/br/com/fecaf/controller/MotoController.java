@@ -57,4 +57,14 @@ public class MotoController {
 
         return null; // Retorna nulo se não encontrar
     }
+
+    // ... (depois do seu método buscarPorId)
+
+    // 4. Endpoint para DELETAR uma moto POR ID (Mudança de Escopo)
+// DELETE -> http://localhost:8080/api/v1/motos/1
+    @DeleteMapping("/{id}")
+    public void deletarMoto(@PathVariable Long id) {
+        // Remove da lista a moto que tiver o ID correspondente
+        motos.removeIf(moto -> moto.getId() != null && moto.getId().equals(id));
+    }
 }
